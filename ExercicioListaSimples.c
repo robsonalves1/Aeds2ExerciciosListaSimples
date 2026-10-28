@@ -30,7 +30,7 @@ int estaVazia(LISTA *l) {
 
 void inserePosicao(LISTA *l, int posicao, int elem) {
     if (estaCheia(l)) {
-        printf("Fila Cheia");
+        printf("Lista Cheia");
         exit(1);
     }
 
@@ -45,7 +45,7 @@ void inserePosicao(LISTA *l, int posicao, int elem) {
 // 1.2
 void insereFinal(LISTA *l, int elem) {
     if (estaCheia(l)) {
-        printf("Fila Cheia");
+        printf("Lista Cheia");
         exit(1);
     }
 
@@ -55,7 +55,7 @@ void insereFinal(LISTA *l, int elem) {
 
 int removePosicao(LISTA *l, int posicao) {
     if (estaVazia(l)) {
-        printf("Fila vazia");
+        printf("Lista vazia");
         exit(1);
     }
 
@@ -70,6 +70,18 @@ int removePosicao(LISTA *l, int posicao) {
     return removido;
 }
 
+// 1.4
+int removeFinal(LISTA *l) {
+    if (estaVazia(l)) {
+        printf("Lista vazia");
+        exit(1);
+    }
+
+    int removido = l->elementos[l->ultimo - 1];
+    l->ultimo--;
+    
+    return removido;
+}
 
 void destroi(LISTA *l) {
     free(l);
@@ -93,6 +105,8 @@ void imprime(LISTA *l) {
     }
 }
 
+
+
 int main() {
     LISTA *l = cria();
 
@@ -101,7 +115,7 @@ int main() {
     insereFinal(l, 1);
     insereFinal(l, 9);
 
-    recupera(l);
+    printf("%d \n", removeFinal(l));
 
     destroi(l);
 

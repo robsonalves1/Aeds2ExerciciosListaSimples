@@ -28,7 +28,7 @@ int estaVazia(LISTA *l) {
 
 void inserePosicao(LISTA *l, int posicao, int elem) {
     if (estaCheia(l)) {
-        printf("Fila Cheia");
+        printf("Lista Cheia");
         exit(1);
     }
 
@@ -42,7 +42,7 @@ void inserePosicao(LISTA *l, int posicao, int elem) {
 
 void insereFim(LISTA *l, int elem) {
     if (estaCheia(l)) {
-        printf("Fila Cheia");
+        printf("Lista Cheia");
         exit(1);
     }
 
@@ -52,7 +52,7 @@ void insereFim(LISTA *l, int elem) {
 
 int removePosicao(LISTA *l, int posicao) {
     if (estaVazia(l)) {
-        printf("Fila vazia");
+        printf("Lista vazia");
         exit(1);
     }
 
