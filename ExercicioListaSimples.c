@@ -53,6 +53,7 @@ void insereFinal(LISTA *l, int elem) {
     l->ultimo++;
 }
 
+// 1.5
 int removePosicao(LISTA *l, int posicao) {
     if (estaVazia(l)) {
         printf("Lista vazia");
@@ -105,7 +106,48 @@ void imprime(LISTA *l) {
     }
 }
 
+// 2.1
+int busca(LISTA *l, int v) {
+    for (int i = 0; i < tamanho(l); i++) {
+        if (l->elementos[i] == v) {
+            return i;
+        }
+    }
 
+    return -1;
+}
+
+// 2.2
+int contem(LISTA *l, int v) {
+    for (int i = 0; i < tamanho(l); i++) {
+        if (l->elementos[i] == v) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+// 2.2
+int conta(LISTA *l, int v) {
+    int soma = 0;
+    
+    for (int i = 0; i < tamanho(l); i++) {
+        if (l->elementos[i] == v) {
+            soma++;
+        }
+
+    return soma;
+}
+
+// 2.3
+int maiorElemento(LISTA *l) {
+    return 0;
+}
+
+int menorElemento(LISTA *l) {
+    return 0;
+}
 
 int main() {
     LISTA *l = cria();
@@ -115,7 +157,7 @@ int main() {
     insereFinal(l, 1);
     insereFinal(l, 9);
 
-    printf("%d \n", removeFinal(l));
+    printf("%d \n", conta(l, 1));
 
     destroi(l);
 
