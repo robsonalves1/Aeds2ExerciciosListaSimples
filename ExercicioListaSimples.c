@@ -136,7 +136,7 @@ int conta(LISTA *l, int v) {
         if (l->elementos[i] == v) {
             soma++;
         }
-
+    }
     return soma;
 }
 
@@ -149,17 +149,55 @@ int menorElemento(LISTA *l) {
     return 0;
 }
 
+// 2.4
+int soma(LISTA *l) {
+    int res = 0;
+    
+    for (int i = 0; i < l->ultimo; i++) {
+        res += l->elementos[i];
+    }
+
+    return res;
+}
+
+// 2.4
+double media(LISTA *l) {
+    return (double) soma(l) / tamanho(l);
+}
+
+// 2.5
+int estaOrdenada(LISTA *l) {
+    for (int i = 0; i < tamanho(l) - 1; i++) {
+        if (l->elementos[i] >= l->elementos[i + 1]) {
+            return 0;
+        }
+
+    }
+
+    return 1;
+}
+
+// 3.1
+void insereInicio(LISTA *l, int elem) {
+    for (int i = tamanho(l); i > 0; i--) {
+        l->elementos[i] = l->elementos[i - 1];
+    }
+
+    l->elementos[0] = elem;
+    l->ultimo++;
+}
+
 int main() {
     LISTA *l = cria();
 
+    insereFinal(l, 1);
     insereFinal(l, 3);
     insereFinal(l, 7);
-    insereFinal(l, 1);
     insereFinal(l, 9);
 
-    printf("%d \n", conta(l, 1));
+    
 
     destroi(l);
 
-    return 1;
+    return 0;
 }
