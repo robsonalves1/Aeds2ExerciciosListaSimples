@@ -187,6 +187,19 @@ void insereInicio(LISTA *l, int elem) {
     l->ultimo++;
 }
 
+// 3.2
+void inverte(LISTA *l) {
+    int aux = 0;
+    int ultimaPos = 0;
+
+    for (int i = 0; i < tamanho(l) / 2; i++) {
+        ultimaPos = tamanho(l) - 1 - i;
+        aux = l->elementos[ultimaPos];
+        l->elementos[ultimaPos] = l->elementos[i];
+        l->elementos[i] = aux;
+    }
+}
+
 int main() {
     LISTA *l = cria();
 
@@ -195,7 +208,9 @@ int main() {
     insereFinal(l, 7);
     insereFinal(l, 9);
 
-    
+    inverte(l);
+
+    imprime(l);
 
     destroi(l);
 
