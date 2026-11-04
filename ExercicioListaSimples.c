@@ -200,15 +200,30 @@ void inverte(LISTA *l) {
     }
 }
 
+// 3.3
+void remove_valor(LISTA *l, int v) {
+    int idxEscrita = 0;
+
+    for (int i = 0; i < l->ultimo; i++) {
+        if (l->elementos[i] != v) {
+            l->elementos[idxEscrita] = l->elementos[i];
+            idxEscrita++;
+        }
+    }
+    
+    l->ultimo = idxEscrita;
+}
+
 int main() {
     LISTA *l = cria();
 
     insereFinal(l, 1);
     insereFinal(l, 3);
     insereFinal(l, 7);
+    insereFinal(l, 3);
     insereFinal(l, 9);
 
-    inverte(l);
+    remove_valor(l, 3);
 
     imprime(l);
 
