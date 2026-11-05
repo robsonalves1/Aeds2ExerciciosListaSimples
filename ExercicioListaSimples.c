@@ -214,6 +214,24 @@ void remove_valor(LISTA *l, int v) {
     l->ultimo = idxEscrita;
 }
 
+// 3.4
+void remove_duplicadas(LISTA *l, int v) {
+    int idxEscrita = 0;
+    int visto = 0;
+
+    for (int i = 0; i < l->ultimo; i++) {
+        if (l->elementos[i] != v) {
+            l->elementos[idxEscrita] = l->elementos[i];
+            idxEscrita++;
+        } else if (visto == 0) {
+            visto = 1;
+            idxEscrita++;
+        }
+    }
+
+    l->ultimo = idxEscrita;
+}
+
 int main() {
     LISTA *l = cria();
 
@@ -223,7 +241,7 @@ int main() {
     insereFinal(l, 3);
     insereFinal(l, 9);
 
-    remove_valor(l, 3);
+    remove_duplicadas(l, 3);
 
     imprime(l);
 
